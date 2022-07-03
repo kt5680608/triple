@@ -1,5 +1,7 @@
+import { GuidePage } from './pages'
+
 function App() {
-  return <div />
+  return <GuidePage />
 }
 
 export default App

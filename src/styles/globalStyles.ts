@@ -1,17 +1,24 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import { motion } from 'framer-motion'
+
 export const GlobalStyles = createGlobalStyle`
     :root {
         --g-color-black: #3A3A3A;
         --g-color-grey100: #616161;
-        --g-color-grey50: #7F7F7F;
-
-        
+        --g-color-grey50: #7F7F7F; 
     }
     html{
         margin: 0;
         padding: 0;
         font-size: 16px;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      max-width: 100vw;
+      flex-direction: column;
+      overflow-x: hidden;
+      align-items: center;
     }
     a {
     text-decoration: none;
@@ -69,6 +76,15 @@ interface ImageProps {
   margin?: string
   fontSize?: string
 }
+
+interface SectionProps {
+  display?: string
+  direction?: string
+  justify?: string
+  align?: string
+  overflow?: string
+}
+
 export const Box = styled(motion.div)<BoxProps>`
   display: ${(props) => props.display && props.display};
   flex-direction: ${(props) => props.direction && props.direction};
@@ -86,4 +102,13 @@ export const Image = styled.img<ImageProps>`
     font-size: ${(props) => props.fontSize && props.fontSize};
     margin: ${(props) => (props.margin ? props.margin : '0px auto')};
   }
+`
+
+export const Section = styled.section<SectionProps>`
+  display: ${(props) => props.display && props.display};
+  flex-direction: ${(props) => props.direction && props.direction};
+  justify-content: ${(props) => props.justify && props.justify};
+  align-items: ${(props) => props.align && props.align};
+  overflow: ${(props) => props.overflow && props.overflow};
+  max-width: 100%;
 `
