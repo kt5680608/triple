@@ -26,13 +26,13 @@ function ContentCounter() {
       height="100%"
     >
       <CountingItem>
-        <strong>{peopleCount}</strong>만 명의 여행자
+        <strong>{peopleCount}만 명</strong>의 여행자
       </CountingItem>
       <CountingItem>
-        <strong>{reviewCount}</strong>만 개의 여행 리뷰
+        <strong>{reviewCount}만 개</strong>의 여행 리뷰
       </CountingItem>
       <CountingItem>
-        <strong>{scheduleCount}</strong>만 개의 여행 일정
+        <strong>{scheduleCount}만 개</strong>의 여행 일정
       </CountingItem>
     </Box>
   )
