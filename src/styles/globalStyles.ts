@@ -104,7 +104,7 @@ export const Image = styled.img<ImageProps>`
   }
 `
 
-export const Section = styled.section<SectionProps>`
+export const Section = styled(motion.section)<SectionProps>`
   display: ${(props) => props.display && props.display};
   flex-direction: ${(props) => props.direction && props.direction};
   justify-content: ${(props) => props.justify && props.justify};
