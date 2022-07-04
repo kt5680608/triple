@@ -100,7 +100,7 @@ export const Image = styled.img<ImageProps>`
     width: ${(props) => props.width && props.width};
     height: ${(props) => props.height && props.height};
     font-size: ${(props) => props.fontSize && props.fontSize};
-    margin: ${(props) => (props.margin ? props.margin : '0px auto')};
+    margin: ${(props) => (props.margin ? props.margin : '0px')};
   }
 `
 

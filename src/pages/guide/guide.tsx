@@ -1,13 +1,16 @@
 import 'styled-components'
 
-import { ContentLogo, ContentCounter } from '../../components'
-import { Section } from '../../styles/globalStyles'
+import { ContentLogo, ContentCounter, ContentAward } from '../../components'
+import { Section, Box } from '../../styles/globalStyles'
 
 function GuidePage() {
   return (
     <Section display="flex" justify="space-between" align="flex-start">
       <ContentLogo />
-      <ContentCounter />
+      <Box id="content-info" display="flex" direction="column">
+        <ContentCounter />
+        <ContentAward />
+      </Box>
     </Section>
   )
 }
