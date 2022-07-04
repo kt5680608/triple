@@ -4,7 +4,7 @@ import { Box } from '../../styles/globalStyles'
 import useCount from '../../hooks/useCount'
 
 const CountingItem = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 7.5px;
   font-size: 36px;
   color: var(--g-color-black);
   letter-spacing: -1px;
@@ -12,10 +12,14 @@ const CountingItem = styled.div`
     margin-bottom: 0px;
   }
 `
-function ContentCounter() {
-  const peopleCount = useCount(700)
-  const reviewCount = useCount(100)
-  const scheduleCount = useCount(470)
+
+interface CounterProps {
+  inView: boolean
+}
+function ContentCounter({ inView }: CounterProps) {
+  const peopleCount = useCount(700, inView)
+  const reviewCount = useCount(100, inView)
+  const scheduleCount = useCount(470, inView)
   return (
     <Box
       id="counter-container"
