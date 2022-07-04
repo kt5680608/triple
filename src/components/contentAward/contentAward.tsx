@@ -18,13 +18,18 @@ function ContentAward() {
       align="center"
       margin="48px 0 0 0"
     >
-      <Box id="content-info-award-google" display="flex" margin="0 39px 0 0">
+      <Box
+        id="content-info-award-google"
+        display="flex"
+        margin="0 39px 0 0"
+        align="center"
+      >
         <Image src="/images/play-store2x.png" width="54px" height="54px" />
         <AwardInfo>
           2018 구글 플레이스토어 <br /> 올해의 앱 최우수상 수상
         </AwardInfo>
       </Box>
-      <Box id="content-info-award-apple" display="flex">
+      <Box id="content-info-award-apple" display="flex" align="center">
         <Image src="/images/badge-apple4x.png" width="54px" height="54px" />
         <AwardInfo>
           2018 애플 앱스토어 <br /> 오늘의 여행 앱 선정
