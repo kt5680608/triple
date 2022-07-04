@@ -110,5 +110,6 @@ export const Section = styled.section<SectionProps>`
   justify-content: ${(props) => props.justify && props.justify};
   align-items: ${(props) => props.align && props.align};
   overflow: ${(props) => props.overflow && props.overflow};
-  max-width: 100%;
+  width: 1040px;
+  margin: 0 74.5px;
 `
