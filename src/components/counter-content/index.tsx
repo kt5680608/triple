@@ -3,13 +3,10 @@ import { Box } from '../../styles/global-styles'
 
 import { CountingItem, Number } from './styles'
 
-interface CounterProps {
-  inView: boolean
-}
-function ContentCounter({ inView }: CounterProps) {
-  const peopleCount = useCount(700, inView)
-  const reviewCount = useCount(100, inView)
-  const scheduleCount = useCount(470, inView)
+function ContentCounter() {
+  const peopleCount = useCount(700)
+  const reviewCount = useCount(100)
+  const scheduleCount = useCount(470)
   return (
     <Box
       id="content-counter-container"
