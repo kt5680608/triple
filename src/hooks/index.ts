@@ -1,2 +1,2 @@
-export { default as useCount } from './useCount'
-export { default as useFadeIn } from './useFadeIn'
+export { default as useCount } from './count'
+export { default as useFadeIn } from './fade-in'
