@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer'
 import { useAnimation } from 'framer-motion'
 
 import { ContentLogo, ContentCounter, ContentAward } from '../../components'
-import { Section, Box } from '../../styles/globalStyles'
+import { Section, Box } from '../../styles/global-styles'
 import { useFadeIn } from '../../hooks'
 
 function GuidePage() {
@@ -46,7 +46,7 @@ function GuidePage() {
         <Box id="motion-box" variants={fadeIn.child}>
           <ContentLogo />
         </Box>
-        <Box id="content-info" display="flex" direction="column">
+        <Box id="main-content-info" display="flex" direction="column">
           <Box id="motion-box" variants={fadeIn.child}>
             <ContentCounter inView={inView} />
           </Box>

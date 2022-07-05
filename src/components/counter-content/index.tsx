@@ -1,5 +1,5 @@
-import useCount from '../../hooks/useCount'
-import { Box } from '../../styles/globalStyles'
+import { useCount } from '../../hooks'
+import { Box } from '../../styles/global-styles'
 
 import { CountingItem, Number } from './styles'
 
@@ -12,7 +12,7 @@ function ContentCounter({ inView }: CounterProps) {
   const scheduleCount = useCount(470, inView)
   return (
     <Box
-      id="counter-container"
+      id="content-counter-container"
       display="flex"
       direction="column"
       justify="flex-start"

@@ -1,11 +1,11 @@
-import { Image, Box } from '../../styles/globalStyles'
+import { Image, Box } from '../../styles/global-styles'
 
 import { LogoText } from './styles'
 
 function ContentLogo() {
   return (
     <Box
-      id="logo-container"
+      id="content-logo-container"
       display="flex"
       justify="center"
       align="center"

@@ -1,11 +1,11 @@
-import { Box, Image } from '../../styles/globalStyles'
+import { Box, Image } from '../../styles/global-styles'
 
 import { AwardInfo } from './styles'
 
 function ContentAward() {
   return (
     <Box
-      id="content-info-award"
+      id="content-info-award-container"
       display="flex"
       justify="flex-start"
       align="center"
