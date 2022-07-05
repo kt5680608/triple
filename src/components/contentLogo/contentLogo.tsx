@@ -1,12 +1,7 @@
-import styled from 'styled-components'
-
 import { Image, Box } from '../../styles/globalStyles'
 
-const LogoText = styled.p`
-  padding-top: 200px;
-  color: var(--g-color-grey50);
-  position: absolute;
-`
+import { LogoText } from './styles'
+
 function ContentLogo() {
   return (
     <Box

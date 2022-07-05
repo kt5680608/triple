@@ -1,17 +1,7 @@
-import styled from 'styled-components'
-
-import { Box } from '../../styles/globalStyles'
 import useCount from '../../hooks/useCount'
+import { Box } from '../../styles/globalStyles'
 
-const CountingItem = styled.div`
-  margin-bottom: 7.5px;
-  font-size: 36px;
-  color: var(--g-color-black);
-  letter-spacing: -1px;
-  &:last-child {
-    margin-bottom: 0px;
-  }
-`
+import { CountingItem, Number } from './styles'
 
 interface CounterProps {
   inView: boolean
@@ -30,13 +20,22 @@ function ContentCounter({ inView }: CounterProps) {
       height="100%"
     >
       <CountingItem>
-        <strong>{peopleCount}만 명</strong>의 여행자
+        <strong>
+          <Number>{peopleCount}</Number>만 명
+        </strong>
+        의 여행자
       </CountingItem>
       <CountingItem>
-        <strong>{reviewCount}만 개</strong>의 여행 리뷰
+        <strong>
+          <Number>{reviewCount}</Number>만 개
+        </strong>
+        의 여행 리뷰
       </CountingItem>
       <CountingItem>
-        <strong>{scheduleCount}만 개</strong>의 여행 일정
+        <strong>
+          <Number>{scheduleCount}</Number>만 개
+        </strong>
+        의 여행 일정
       </CountingItem>
     </Box>
   )
