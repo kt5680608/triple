@@ -27,8 +27,7 @@ const useCount = (value: number): number => {
       const easeOutValue = easeOut(frame / totalFrames)
 
       // 추천 프레임 만큼 진행된 값
-      const currentCount = Math.round(easeOutValue * value)
-      setCount(currentCount)
+      setCount(Math.round(easeOutValue * value))
 
       // counting 완료시 함수 종료
       if (frame === totalFrames) {
