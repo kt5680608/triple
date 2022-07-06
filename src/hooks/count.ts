@@ -23,10 +23,10 @@ const useCount = (value: number): number => {
     const countingAnimation = setInterval(() => {
       frame++
 
-      // 추천 프레임 진행도 %
+      // ease-out 프레임 진행도 %
       const easeOutValue = easeOut(frame / totalFrames)
 
-      // 추천 프레임 만큼 진행된 값
+      // ease-out 프레임 만큼 진행된 값 저장
       setCount(Math.round(easeOutValue * value))
 
       // counting 완료시 함수 종료
