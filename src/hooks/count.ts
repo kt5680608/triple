@@ -11,11 +11,11 @@ const useCount = (value: number): number => {
     // 실제 애니메이션의 시간
     const totalAnimationDuration = 2000
 
-    // 1프레임당 시간 (1s / 60 frame)
-    const Fps = 1000 / 60
+    // 1프레임당 시간 (1s / 60 frames)
+    const FRAME_TIME = 1000 / 60
 
     // 총 프레임의 개수
-    const totalFrames = Math.round(totalAnimationDuration / Fps)
+    const totalFrames = Math.round(totalAnimationDuration / FRAME_TIME)
 
     // 프레임의 진행 수
     let frame = 0
@@ -34,7 +34,7 @@ const useCount = (value: number): number => {
       if (frame === totalFrames) {
         clearInterval(countingAnimation)
       }
-    }, Fps)
+    }, FRAME_TIME)
   }, [value])
   return count
 }
