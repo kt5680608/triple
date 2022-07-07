@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { useAnimation } from 'framer-motion'
 
@@ -9,20 +8,7 @@ import { useFadeIn } from '../../hooks'
 function GuidePage() {
   const [ref, inView] = useInView({ trackVisibility: true, delay: 100 })
   const animation = useAnimation()
-  const fadeIn = useFadeIn()
-  const [animationStart, setAnimationStart] = useState(false)
-
-  useEffect(() => {
-    if (inView) {
-      setAnimationStart(true)
-    }
-  }, [inView])
-
-  useEffect(() => {
-    if (animationStart) {
-      animation.start('show')
-    }
-  }, [animationStart])
+  const fadeIn = useFadeIn(animation, inView)
 
   return (
     <Box
@@ -33,17 +19,6 @@ function GuidePage() {
       align="center"
       direction="column"
     >
-      {/*
-       <Box
-        id="scrolldown-container"
-        height="100vh"
-        width="100vw"
-        display="flex"
-        justify="center"
-        align="center"
-      >
-        스크롤 다운
-      </Box> */}
       <Section
         display="flex"
         justify="space-between"
