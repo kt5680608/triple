@@ -14,7 +14,7 @@ const useFadeIn = (animation: AnimationControls, inView: boolean) => {
     if (animationTrigger) {
       animation.start('show')
     }
-  })
+  }, [animationTrigger])
 
   const parent = {
     hidden: {},
