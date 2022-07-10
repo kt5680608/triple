@@ -2,13 +2,19 @@ import { useEffect, useState } from 'react'
 
 const useCount = (value: number, duration: number, inView: boolean): number => {
   const [count, setCount] = useState(0)
+  const [animationTrigger, setAnimationTrigger] = useState(false)
 
   const easeOut = (x: number): number => {
     return Math.sqrt(1 - Math.pow(x - 1, 2))
   }
-
   useEffect(() => {
     if (inView) {
+      setAnimationTrigger(true)
+    }
+  }, [inView])
+
+  useEffect(() => {
+    if (animationTrigger) {
       // 실제 애니메이션의 시간
       const totalAnimationDuration = duration
 
@@ -36,7 +42,7 @@ const useCount = (value: number, duration: number, inView: boolean): number => {
         }
       }, FRAME_TIME)
     }
-  }, [value, inView])
+  }, [value, animationTrigger])
   return count
 }
 
