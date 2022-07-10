@@ -3,16 +3,19 @@ import { AnimationControls } from 'framer-motion'
 
 const useFadeIn = (inView: boolean, animation: AnimationControls) => {
   const [animationTrigger, setAnimationTrigger] = useState(false)
+
   useEffect(() => {
     if (inView && !animationTrigger) {
       setAnimationTrigger(true)
     }
   }, [inView])
+
   useEffect(() => {
     if (animationTrigger) {
       animation.start('show')
     }
-  })
+  }, [animationTrigger])
+
   const parent = {
     hidden: {},
     show: {
