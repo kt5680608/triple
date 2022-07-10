@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { useAnimation } from 'framer-motion'
 
@@ -9,20 +8,7 @@ import { useFadeIn } from '../../hooks'
 function GuidePage() {
   const [ref, inView] = useInView({ trackVisibility: true, delay: 100 })
   const animation = useAnimation()
-  const fadeIn = useFadeIn()
-  const [animationStart, setAnimationStart] = useState(false)
-
-  useEffect(() => {
-    if (inView) {
-      setAnimationStart(true)
-    }
-  }, [inView])
-
-  useEffect(() => {
-    if (animationStart) {
-      animation.start('show')
-    }
-  }, [animationStart])
+  const fadeIn = useFadeIn(inView, animation)
 
   return (
     <Box
