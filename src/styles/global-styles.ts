@@ -1,6 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import { motion } from 'framer-motion'
 
+import { BoxProps, ImageProps, SectionProps } from './types'
+
 export const GlobalStyles = createGlobalStyle`
     :root {
         --g-color-black: #3A3A3A;
@@ -58,32 +60,6 @@ export const GlobalStyles = createGlobalStyle`
     }
 }
 `
-interface BoxProps {
-  id: string
-  display?: string
-  direction?: string
-  justify?: string
-  align?: string
-  width?: string
-  height?: string
-  margin?: string
-  overflow?: string
-}
-
-interface ImageProps {
-  width?: string
-  height?: string
-  margin?: string
-  fontSize?: string
-}
-
-interface SectionProps {
-  display?: string
-  direction?: string
-  justify?: string
-  align?: string
-  overflow?: string
-}
 
 export const Box = styled(motion.div)<BoxProps>`
   display: ${(props) => props.display && props.display};
