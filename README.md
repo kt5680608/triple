@@ -37,4 +37,4 @@ Box 컴포넌트를 jsx 내에서 반복적으로 사용하게 되면 코드를 
 
 `react-intersection-observer`를 사용하지 않고 scroll based 이벤트로 같은 기능을 구현할 수 있습니다. 하지만 이 경우 스크롤을 할 때마다 이벤트를 실행, 관찰해야 하기 때문에 별도의 최적화 작업이 없다면 메인 스레드의 성능에 영향을 줄 수 있습니다. 하지만 `react-intersection-observer`의 경우 이를 비동기적으로 처리하기 때문에 더 좋은 퍼포먼스를 보입니다.
 
-또한 scroll-based 이벤트를 사용하면 레이아웃이 변경될 때나 반응형 작업을 할 때 추가적인 작업 소요가 있습니다. `react-intersection-observer`를 사용하면 반응형, 레이아웃의 변경을 고려할 필요가 없습니다.
+또한 scroll-based 이벤트를 사용하면 레이아웃이 변경될 때나 반응형 작업을 할 때 추가적인 작업 소요가 있습니다. `react-intersection-observer`를 사용하면 반응형과 레이아웃의 변경을 고려할 필요가 없습니다.
