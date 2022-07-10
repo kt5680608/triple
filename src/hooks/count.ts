@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useCount = (value: number): number => {
+const useCount = (value: number, duration: number): number => {
   const [count, setCount] = useState(0)
 
   const easeOut = (x: number): number => {
@@ -9,7 +9,7 @@ const useCount = (value: number): number => {
 
   useEffect(() => {
     // 실제 애니메이션의 시간
-    const totalAnimationDuration = 2000
+    const totalAnimationDuration = duration
 
     // 1프레임당 시간 (1s / 60 frames)
     const FRAME_TIME = 1000 / 60
