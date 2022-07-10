@@ -60,14 +60,33 @@ export const GlobalStyles = createGlobalStyle`
 `
 interface BoxProps {
   id: string
-  display?: string
-  direction?: string
-  justify?: string
-  align?: string
+  display?:
+    | 'block'
+    | 'inline-block'
+    | 'inline'
+    | 'none'
+    | 'flex'
+    | 'inline-flex'
+    | 'grid'
+  direction?: 'row' | 'column'
+  justify?:
+    | 'center'
+    | 'flex-start'
+    | 'flex-end'
+    | 'space-between'
+    | 'space-aroud'
+    | 'space-evenly'
+  align?:
+    | 'center'
+    | 'flex-start'
+    | 'flex-end'
+    | 'space-between'
+    | 'space-aroud'
+    | 'space-evenly'
   width?: string
   height?: string
   margin?: string
-  overflow?: string
+  overflow?: 'visible' | 'hidden' | 'auto' | 'scroll'
 }
 
 interface ImageProps {
@@ -78,11 +97,30 @@ interface ImageProps {
 }
 
 interface SectionProps {
-  display?: string
-  direction?: string
-  justify?: string
-  align?: string
-  overflow?: string
+  display?:
+    | 'block'
+    | 'inline-block'
+    | 'inline'
+    | 'none'
+    | 'flex'
+    | 'inline-flex'
+    | 'grid'
+  direction?: 'row' | 'column'
+  justify?:
+    | 'center'
+    | 'flex-start'
+    | 'flex-end'
+    | 'space-between'
+    | 'space-aroud'
+    | 'space-evenly'
+  align?:
+    | 'center'
+    | 'flex-start'
+    | 'flex-end'
+    | 'space-between'
+    | 'space-aroud'
+    | 'space-evenly'
+  overflow?: 'visible' | 'hidden' | 'auto' | 'scroll'
 }
 
 export const Box = styled(motion.div)<BoxProps>`
