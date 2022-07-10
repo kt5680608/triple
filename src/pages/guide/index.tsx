@@ -19,17 +19,16 @@ function GuidePage() {
       align="center"
       direction="column"
     >
-      {/*
-       <Box
+      <Box
         id="scrolldown-container"
-        height="100vh"
+        height="110vh"
         width="100vw"
         display="flex"
         justify="center"
         align="center"
       >
         스크롤 다운
-      </Box> */}
+      </Box>
       <Section
         display="flex"
         justify="space-between"
@@ -44,7 +43,7 @@ function GuidePage() {
         </Box>
         <Box id="main-content-info" display="flex" direction="column">
           <Box id="motion-box" variants={fadeIn.child}>
-            <ContentCounter />
+            <ContentCounter inView={inView} />
           </Box>
           <Box id="motion-box" variants={fadeIn.child}>
             <ContentAward />
