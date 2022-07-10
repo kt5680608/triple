@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useCount = (value: number, duration: number): number => {
+const useCount = (value: number, duration: number, inView: boolean): number => {
   const [count, setCount] = useState(0)
 
   const easeOut = (x: number): number => {
@@ -8,33 +8,35 @@ const useCount = (value: number, duration: number): number => {
   }
 
   useEffect(() => {
-    // 실제 애니메이션의 시간
-    const totalAnimationDuration = duration
+    if (inView) {
+      // 실제 애니메이션의 시간
+      const totalAnimationDuration = duration
 
-    // 1프레임당 시간 (1s / 60 frames)
-    const FRAME_TIME = 1000 / 60
+      // 1프레임당 시간 (1s / 60 frames)
+      const FRAME_TIME = 1000 / 60
 
-    // 총 프레임의 개수
-    const totalFrames = Math.round(totalAnimationDuration / FRAME_TIME)
+      // 총 프레임의 개수
+      const totalFrames = Math.round(totalAnimationDuration / FRAME_TIME)
 
-    // 프레임의 진행 수
-    let frame = 0
+      // 프레임의 진행 수
+      let frame = 0
 
-    const countingAnimation = setInterval(() => {
-      frame++
+      const countingAnimation = setInterval(() => {
+        frame++
 
-      // ease-out 프레임 진행도 %
-      const easeOutValue = easeOut(frame / totalFrames)
+        // ease-out 프레임 진행도 %
+        const easeOutValue = easeOut(frame / totalFrames)
 
-      // ease-out 프레임 만큼 진행된 값 저장
-      setCount(Math.round(easeOutValue * value))
+        // ease-out 프레임 만큼 진행된 값 저장
+        setCount(Math.round(easeOutValue * value))
 
-      // counting 완료시 함수 종료
-      if (frame === totalFrames) {
-        clearInterval(countingAnimation)
-      }
-    }, FRAME_TIME)
-  }, [value])
+        // counting 완료시 함수 종료
+        if (frame === totalFrames) {
+          clearInterval(countingAnimation)
+        }
+      }, FRAME_TIME)
+    }
+  }, [value, inView])
   return count
 }
 

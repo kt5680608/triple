@@ -5,7 +5,7 @@ const useFadeIn = (inView: boolean, animation: AnimationControls) => {
   const [animationTrigger, setAnimationTrigger] = useState(false)
 
   useEffect(() => {
-    if (inView && !animationTrigger) {
+    if (inView) {
       setAnimationTrigger(true)
     }
   }, [inView])
