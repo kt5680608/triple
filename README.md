@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+# **설치 방법**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+git clone https://github.com/kt5680608/triple.git && cd triple && npm install && npm start
+```
 
-## Available Scripts
+# **사용 스택**
 
-In the project directory, you can run:
+## **framer-motion**
 
-### `npm start`
+`framer-motion` 라이브러리를 사용하여 fade-in 애니메이션을 구현하였습니다. 이 라이브러리를 사용할 경우 여러 이점을 챙길 수 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> 1.  애니메이션 관련 코드를 css와 완전 분리하여 따로 관리하는 것이 가능합니다.
+> 2.  내장된 hooks를 통해 복잡한 애니메이션과 제스쳐를 적은 코드로 구현할 수 있습니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+위 과제의 경우 1번의 장점을 활용하기 위해 채택하였습니다. `framer-motion` 라이브러리를 사용하여 관심사 기반으로 코드를 분리할 수 있었습니다. 이를 통해 코드의 통일성을 지킬 수 있었으며 이는 프로젝트의 규모가 커질수록 효과를 발휘할 수 있다고 생각합니다.
 
-### `npm test`
+## **styled-components**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+이전 프로젝트를 진행하면서 style 코드 중 div의 정렬과 스타일링이 큰 비중을 차지한다는 생각을 하였습니다. style 코드를 줄이기 위해서 Box 컴포넌트를 global-styles에서 생성하여 전역으로 사용하였습니다. 정렬과 스타일링에 필요한 속성을 props로 받아 사용할 수 있게 제작하였습니다.
 
-### `npm run build`
+### **Box 컴포넌트의 id는 왜 필수인가요?**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Box 컴포넌트를 jsx 내에서 반복적으로 사용하게 되면 코드를 봤을 때 가시성이 떨어질 수 있다고 생각하였습니다. 따라서 Box에 고유 id를 부여하면 tsx 코드와 개발자 도구에서 가시성을 높일 수 있다고 생각하였습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **왜 컴포넌트 별 style 파일을 별도 생성하였나요?**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+하나의 파일이 하나의 기능만 수행하게 하는 것이 프로젝트의 규모가 커졌을 때 관심사를 찾고 유지보수하기 수월하다고 생각하였습니다. .tsx 파일에서는 필요한 소품들을 모아서 이를 보여주는 기능을 한다고 생각하였기 때문에 style 코드를 따로 관리하였습니다.
 
-### `npm run eject`
+또한 `.tsx` 파일에서 관리하던 스타일 코드가 많아지면 이 때 style 파일을 따로 생성하여 관리하는 방법도 생각해보았으나, 이 경우 어떤 파일에서는 style 코드를 `.tsx` 파일에서 관리하고 어떤 파일에서는 style 파일에서 관리하기 때문에 개발자에게 혼란을 줄 수 있다고 판단하여 모든 스타일 코드를 style 파일에서 관리하는 것으로 결정하였습니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## **react-intersection-observer**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+해당 컴포넌트가 화면상에 감지되면 애니메이션이 동작하게 하기 위해서 `react-intersection-observer` 라이브러리를 사용하였습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### **scroll-based 이벤트와의 차이점은 무엇인가요?**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`react-intersection-observer`를 사용하지 않고 scroll based 이벤트로 같은 기능을 구현할 수 있습니다. 하지만 이 경우 스크롤을 할 때마다 이벤트를 실행, 관찰해야 하기 때문에 별도의 최적화 작업이 없다면 메인 스레드의 성능에 영향을 줄 수 있습니다. 하지만 `react-intersection-observer`의 경우 이를 비동기적으로 처리하기 때문에 더 좋은 퍼포먼스를 보입니다.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+또한 scroll-based 이벤트를 사용하면 레이아웃이 변경될 때나 반응형 작업을 할 때 추가적인 작업 소요가 있습니다. `react-intersection-observer`를 사용하면 반응형, 레이아웃의 변경을 고려할 필요가 없습니다.
